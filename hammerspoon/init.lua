@@ -1,10 +1,10 @@
 -- Hammerspoon init file: ~/.hammerspoon/init.lua
 
--- Move Chrome to screen (cycles through all screens)
+-- Move current app to screen (cycles through all screens)
 local currentScreenIndex = 0 -- Track current screen index for cycling
 hs.hotkey.bind({"cmd", "shift"}, "D", function()
     -- Init logger
-    local log = hs.logger.new('move-chrome','debug')
+    local log = hs.logger.new('move-app','debug')
     log.i('Initializing') -- will print "[mymodule] Initializing" to the console```    
 
     -- Get all connected screens
@@ -24,20 +24,20 @@ hs.hotkey.bind({"cmd", "shift"}, "D", function()
     local targetScreen = allScreens[currentScreenIndex]
     log.i("targetScreen: " .. targetScreen:name())
 
-    -- Move all Chrome windows to the target screen
-    local chrome = hs.application.get("Google Chrome")
-    -- log.i("bundle: " .. chrome:bundleID())
-    if chrome then
-        log.i("window count: " .. #chrome:visibleWindows())
-        -- log.i(ipairs(chrome:visibleWindows()))
-        for _, win in ipairs(chrome:visibleWindows()) do
+    -- Move all windows of the current app to the target screen
+    local currentApp = hs.application.frontmostApplication()
+    -- log.i("bundle: " .. currentApp:bundleID())
+    if currentApp then
+        log.i("window count: " .. #currentApp:visibleWindows())
+        -- log.i(ipairs(currentApp:visibleWindows()))
+        for _, win in ipairs(currentApp:visibleWindows()) do
             -- if no windows are found, go to System Settings → Privacy & Security → Accessibility
-            -- and check HHammerspoon
+            -- and check Hammerspoon
             -- log.i("win: " .. win:title())
             win:moveToScreen(targetScreen)
         end
-        hs.alert.show("Moved Chrome to " .. targetScreen:name())
+        hs.alert.show("Moved " .. currentApp:name() .. " to " .. targetScreen:name())
     else
-        hs.alert.show("Google Chrome is not running")
+        hs.alert.show("No application is focused")
     end
 end)
