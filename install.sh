@@ -60,3 +60,15 @@ while IFS='|' read -r -u 3 src dest os; do
     fi
     install_file "$src" "$dest"
 done 3<<< "$FILES"
+
+# Emacs theme loaded by .emacs, kept outside this repo.
+SOLARIZED_DIR="$HOME/.emacs.d/themes/emacs-color-theme-solarized"
+if [ -d "$SOLARIZED_DIR" ]; then
+    echo "Already present: $SOLARIZED_DIR"
+else
+    read -r -p "Clone Emacs Solarized theme into $SOLARIZED_DIR? [y/N] " answer
+    case "$answer" in
+        [yY]*) git clone https://github.com/sellout/emacs-color-theme-solarized.git "$SOLARIZED_DIR" ;;
+        *) echo "Skipped Solarized theme" ;;
+    esac
+fi

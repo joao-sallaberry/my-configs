@@ -35,5 +35,5 @@ The last column is `all`, `macos`, or `linux`.
 
 ## Extra setup
 
-- **Emacs**: the Solarized theme is not in this repo. Clone it into `~/.emacs.d/themes/emacs-color-theme-solarized`.
+- **Emacs**: the Solarized theme is not in this repo. `install.sh` offers to clone it into `~/.emacs.d/themes/emacs-color-theme-solarized` if that folder doesn't exist yet.
 - **Hammerspoon**: give Hammerspoon Accessibility permission (System Settings → Privacy & Security → Accessibility), then use "Reload Config". `cmd+shift+D` moves the frontmost app's windows to the next screen.

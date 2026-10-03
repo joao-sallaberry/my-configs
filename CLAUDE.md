@@ -16,7 +16,7 @@ Editing a file here does not change the live config until `install.sh` is run ag
 
 ## Notes per file
 
-- **`.emacs`**: loads the Solarized theme from `~/.emacs.d/themes/emacs-color-theme-solarized`, which is not in this repo, so the theme has to be cloned there separately. Prolog mode uses SWI-Prolog (`prolog-system 'swi`) and maps `.pl` to Prolog and `.m` to Mercury. The `custom-set-variables` / `custom-set-faces` blocks are managed by Emacs Customize, so avoid hand-editing them.
+- **`.emacs`**: loads the Solarized theme from `~/.emacs.d/themes/emacs-color-theme-solarized`, which is not in this repo. `install.sh` offers to clone it (from `sellout/emacs-color-theme-solarized`) if the folder is missing. Prolog mode uses SWI-Prolog (`prolog-system 'swi`) and maps `.pl` to Prolog and `.m` to Mercury. The `custom-set-variables` / `custom-set-faces` blocks are managed by Emacs Customize, so avoid hand-editing them.
 - **`.gitconfig`**: `core.editor` is `emacs -nw`. The `tracked` alias (`ls-tree -r master --name-only`) hardcodes the `master` branch.
 - **`hammerspoon/init.lua`**: `cmd+shift+D` moves every visible window of the frontmost app to the next screen, cycling through `hs.screen.allScreens()`. The cycle index is a module-level variable, so it resets when the config reloads. If no windows move, Hammerspoon needs Accessibility permission (System Settings → Privacy & Security → Accessibility). You can check changes with Hammerspoon's console and the `move-app` logger.
 
