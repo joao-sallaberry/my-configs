@@ -1,0 +1,11 @@
+# Mantém todas as combinações padrão do locale
+include "%L"
+
+# Teclado US internacional para pt-br
+# ' + c  ->  ç   (em vez de ć)
+<dead_acute> <c> : "ç" ccedilla
+<dead_acute> <C> : "Ç" Ccedilla
+
+# ' + s  ->  's  (em vez de ś)
+<dead_acute> <s> : "'s"
+<dead_acute> <S> : "'S"

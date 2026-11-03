@@ -11,6 +11,7 @@ A personal dotfiles repo. There is no build, lint, or test suite. `./install.sh`
 | `.emacs` | `~/.emacs` | Emacs |
 | `.gitconfig` | `~/.gitconfig` | Git |
 | `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` | Hammerspoon (macOS only) |
+| `.XCompose` | `~/.XCompose` | IBus / X compose (Linux only) |
 
 Editing a file here does not change the live config until `install.sh` is run again. To add a config, add a line to the `FILES` list in `install.sh` (`source | destination | all/macos/linux`) and to the table above. Keep the script compatible with bash 3.2, the version macOS ships with (so no associative arrays). Hammerspoon also needs "Reload Config" before changes take effect.
 
@@ -19,6 +20,8 @@ Editing a file here does not change the live config until `install.sh` is run ag
 - **`.emacs`**: loads the Solarized theme from `~/.emacs.d/themes/emacs-color-theme-solarized`, which is not in this repo. `install.sh` offers to clone it (from `sellout/emacs-color-theme-solarized`) if the folder is missing. Prolog mode uses SWI-Prolog (`prolog-system 'swi`) and maps `.pl` to Prolog and `.m` to Mercury. The `custom-set-variables` / `custom-set-faces` blocks are managed by Emacs Customize, so avoid hand-editing them.
 - **`.gitconfig`**: `core.editor` is `emacs -nw`. The `tracked` alias (`ls-tree -r master --name-only`) hardcodes the `master` branch.
 - **`hammerspoon/init.lua`**: `cmd+shift+D` moves every visible window of the frontmost app to the next screen, cycling through `hs.screen.allScreens()`. The cycle index is a module-level variable, so it resets when the config reloads. If no windows move, Hammerspoon needs Accessibility permission (System Settings → Privacy & Security → Accessibility). You can check changes with Hammerspoon's console and the `move-app` logger.
+
+- **`.XCompose`**: overrides dead-key combos of the US International (`us+intl`) layout for typing pt-br: `'`+`c` gives `ç` (instead of `ć`) and `'`+`s` gives `'s` (instead of `ś`), uppercase too. `include "%L"` keeps the locale's default combos. Read by IBus (GNOME on Wayland); needs `ibus restart` or a new login, and apps reopened.
 
 ## Conventions
 

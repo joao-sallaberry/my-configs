@@ -16,6 +16,7 @@ FILES="
 .emacs               | $HOME/.emacs                | all
 .gitconfig           | $HOME/.gitconfig            | all
 hammerspoon/init.lua | $HOME/.hammerspoon/init.lua | macos
+.XCompose            | $HOME/.XCompose             | linux
 "
 
 trim() { local s="$1"; s="${s#"${s%%[![:space:]]*}"}"; echo "${s%"${s##*[![:space:]]}"}"; }

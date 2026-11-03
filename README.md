@@ -7,6 +7,7 @@ Personal config files, kept here to set up a new machine quickly.
 | `.emacs` | `~/.emacs` | all |
 | `.gitconfig` | `~/.gitconfig` | all |
 | `hammerspoon/init.lua` | `~/.hammerspoon/init.lua` | macOS |
+| `.XCompose` | `~/.XCompose` | Linux |
 
 ## Install
 
@@ -37,3 +38,4 @@ The last column is `all`, `macos`, or `linux`.
 
 - **Emacs**: the Solarized theme is not in this repo. `install.sh` offers to clone it into `~/.emacs.d/themes/emacs-color-theme-solarized` if that folder doesn't exist yet.
 - **Hammerspoon**: give Hammerspoon Accessibility permission (System Settings → Privacy & Security → Accessibility), then use "Reload Config". `cmd+shift+D` moves the frontmost app's windows to the next screen.
+- **XCompose**: for the `us+intl` layout with IBus. Run `ibus restart` (or log out and back in) and reopen apps for changes to take effect.
