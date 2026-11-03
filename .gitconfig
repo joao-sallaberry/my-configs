@@ -4,6 +4,8 @@
 [alias]
 	co = checkout
 	st = status
-	tracked = ls-tree -r master --name-only
+	tracked = ls-tree -r HEAD --name-only
 [core]
 	editor = emacs -nw
+[init]
+	defaultBranch = main
